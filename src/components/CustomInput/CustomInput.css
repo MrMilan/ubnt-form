@@ -1,0 +1,8 @@
+.custom-input > .input-required::after {
+  content: '*';
+  color: 'red';
+}
+
+.custom-input > error-message {
+  color: 'red';
+}

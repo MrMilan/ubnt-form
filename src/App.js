@@ -1,5 +1,5 @@
 import './App.css';
-import Form from './components/FileImportForm.js'
+import Form from './components/FileImportForm/FileImportForm.js'
 
 const App = () => {
   return (
@@ -7,6 +7,7 @@ const App = () => {
       <header className="App-header">
         <h1>Milan's UBNT Project</h1>
       </header>
+      <Form />
     </div>
   );
 }
