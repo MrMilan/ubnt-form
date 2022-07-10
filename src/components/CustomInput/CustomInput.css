@@ -1,0 +1,35 @@
+.custom-input {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3em;
+}
+
+.custom-input > .custom-input-element > .input-required::after {
+  content: ' *';
+  color: red;
+}
+
+.custom-input > .custom-input-element > .input-hidden {
+  display: none;
+}
+
+.custom-input > .custom-input-element {
+  display: flex;
+  justify-content: space-around;
+}
+
+.custom-input > .custom-input-info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-input > .custom-input-info > .error-message {
+  color: red;
+  width: 50%;
+}
+
+.custom-input > .custom-input-info > .error-warning {
+  color: orange;
+  width: 50%;
+}
+
