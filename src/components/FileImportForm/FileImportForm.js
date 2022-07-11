@@ -15,11 +15,11 @@ import {
 
 import './FileImportForm.css';
 
+const onSubmit = values => {
+    console.log(JSON.stringify(values))
+}
 
-const FileImportForm = () => {
-    const handleSubmit = (values)=>{
-        alert(`Values ${JSON.stringify(values)}`)
-    }
+const FileImportForm = ({handleSubmit, valid}) => {
       
     return (
         <div className="form-body">
@@ -38,11 +38,11 @@ const FileImportForm = () => {
                         {/* File, max 10MB*/}
                         <Field name="file" type="file" component={CustomInput} label="File" validate={[isSelectedOneFile, maxFileSize(10)]} />
                     </div>
-                    <button type="submit">Submit</button>
+                    <button disabled={!valid} type="submit">Submit</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default reduxForm({ form: "file-import"})(FileImportForm);
+export default reduxForm({ form: "file-import", onSubmit})(FileImportForm);
