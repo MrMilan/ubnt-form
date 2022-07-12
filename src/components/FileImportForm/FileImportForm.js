@@ -16,7 +16,7 @@ import {
 import './FileImportForm.css';
 
 const onSubmit = values => {
-    console.log(JSON.stringify(values))
+    alert(JSON.stringify(values))
 }
 
 const FileImportForm = ({handleSubmit, valid}) => {
@@ -36,7 +36,7 @@ const FileImportForm = ({handleSubmit, valid}) => {
                     </div>
                     <div>
                         {/* File, max 10MB*/}
-                        <Field name="file" type="file" component={CustomInput} label="File" validate={[isSelectedOneFile, maxFileSize(10)]} />
+                        <Field name="file" type="file" component={CustomInput} label="File" validate={[maxFileSize(10)]} />
                     </div>
                     <button disabled={!valid} type="submit">Submit</button>
                 </form>
