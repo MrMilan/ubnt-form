@@ -16,12 +16,12 @@ const minLength = min => value =>  value && value.length < min ? `Text must have
 
 const maxLength = max => value =>  value && value.length >= max ? `Text must have max ${max} characters or less` : undefined;
 
-const isSelectedOneFile = (event) => event && event.target.files.length < 2 ? `Select only one file` : undefined;
+const isSelectedOneFile = (event) => event && event.target && event.target.files.length < 2 ? `Select only one file` : undefined;
 
 const maxFileSize = max => event => {
     // value is in bytes in browser (1MB = 1048576 bytes)
     const maxBytes = max && isNaN(Number(max)) ? 10 * 1048576 : Number(max) * 1048576 ;
-    if (event && event.target.files[0].size <= maxBytes)
+    if (event && event.target && event.target.files[0].size <= maxBytes)
     {
         return `File max size is ${maxBytes}MB`;
     }
