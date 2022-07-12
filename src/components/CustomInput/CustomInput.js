@@ -1,29 +1,46 @@
-import React, {useRef} from "react"
+import React, { useRef } from "react"
 import './CustomInput.css';
 
 
 const CustomInput = ({input, label, type, required, meta})=>{
 
     const customInputRef = useRef();
-
-    const hancleClickToUpload = () => {
+ 
+    const handleClickToUpload = () => {
         customInputRef.current.click();
     };
+
+    const handleOnChange = (event) => {
+        event.preventDefault();
+        let fileData = event.target.files[0];
+        if (fileData) {
+            // dispatch(change('file',fileData))
+        }
+      };
     
     return (
         <div className="custom-input">
             <div className="custom-input-element">
                 <label className={`${required ? "input-required": "input-nonrequired"}`}>{label}</label>
-                <input 
-                    className={`${type==="file" ? "input-hidden": "input-visible"}`}
-                    {...input}
-                    type={type}
-                    ref={customInputRef}
-                    />
+                {   type!=="file" && 
+                    <input 
+                        {...input}
+                        type={type}
+                        />
+                }
                 {   type==="file" &&
-                    <button className="custom-input-file-element" onClick={hancleClickToUpload}>
-                        Upload file
-                    </button>
+                    <>
+                        <input 
+                            className={`${type==="file" ? "input-hidden": "input-visible"}`}
+                            {...input}
+                            type={type}
+                            ref={customInputRef}
+                            onChange={event => handleOnChange(event, input)}
+                            />
+                        <button className="custom-input-file-element" onClick={handleClickToUpload}>
+                            Upload file
+                        </button>
+                    </>
                 }
             </div>
             <div className="custom-input-info">
