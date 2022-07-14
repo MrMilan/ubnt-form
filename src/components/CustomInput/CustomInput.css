@@ -18,6 +18,13 @@
   display: none;
 }
 
+.custom-input > .custom-input-element > .custom-input-file-element {
+  display: block;
+  border: grey solid 0.1em;
+  border-radius: 0.3em;
+  background-color: antiquewhite;
+  padding: 0.2em;
+  cursor: pointer;
 }
 
 .custom-input > .custom-input-info {
