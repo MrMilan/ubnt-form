@@ -4,6 +4,11 @@
   padding: 0.3em;
 }
 
+.custom-input > .custom-input-element {
+  display: flex;
+  justify-content: space-around;
+}
+
 .custom-input > .custom-input-element > .input-required::after {
   content: ' *';
   color: red;
@@ -13,9 +18,6 @@
   display: none;
 }
 
-.custom-input > .custom-input-element {
-  display: flex;
-  justify-content: space-around;
 }
 
 .custom-input > .custom-input-info {
